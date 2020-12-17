@@ -20,6 +20,13 @@ Sample of libraries with numpy integration:
 * cython – optimising static compiler for python https://cython.org/
 * Pandas (next classes) – dataframes for python https://pandas.pydata.org/
 
+Preparation
+###########
+
+If ``import numpy`` command cause ``ImportError`` install ``numpy`` library using ``pip install numpy``.
+I also suggest to check if ``ipython`` is installed in current environment
+(it should be installed if you already used ``jupyter``). It could be tested with ``import IPython``.
+
 Basics
 ######
 In comparison to python list numpy arrays have fixed size and type (called ``dtype``).
