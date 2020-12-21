@@ -1,35 +1,34 @@
-***************
- numpy library
-***************
+**********************
+ The ``numpy`` library
+**********************
 
-Numpy is default python library to work with n-dimensional array.
-Almost all popular python libraries for manipulate n-dimensional array in python
-allow to export data an numpy array or implement same interface.
+Numpy is the go-to python library when it comes to working with n-dimensional arrays.
+Almost all popular python libraries that handle n-dimensional arrays in python either allow exporting data as an numpy array or implement same interface.
 
-Numpy like libraries:
+Numpy-like libraries:
 
 * Zarr – https://zarr.readthedocs.io/en/stable/
 * Dask arrays – https://dask.org/
 
-Sample of libraries with numpy integration:
+Examples of libraries with numpy integration:
 
 * matplotlib – plotting utility for python https://matplotlib.org/
 * Pillow – image processing libraries https://pillow.readthedocs.io/en/stable/
-* scipy – numerical effective routines https://www.scipy.org/scipylib/index.html
-* scikit-learn – base machine learning methods https://scikit-learn.org/stable/
+* scipy – numerically efficient routines https://www.scipy.org/scipylib/index.html
+* scikit-learn – basic machine learning https://scikit-learn.org/stable/
 * cython – optimising static compiler for python https://cython.org/
 * Pandas (next classes) – dataframes for python https://pandas.pydata.org/
 
 Preparation
 ###########
 
-If ``import numpy`` command cause ``ImportError`` install ``numpy`` library using ``pip install numpy``.
-I also suggest to check if ``ipython`` is installed in current environment
-(it should be installed if you already used ``jupyter``). It could be tested with ``import IPython``.
+If the ``import numpy`` command causes an ``ImportError``, install the ``numpy`` library using the following command: ``pip install numpy``.
+I also suggest to check if ``ipython`` is installed in your current environment (it should be if you already have used ``jupyter``).
+This can be tested with ``import IPython``.
 
 Basics
 ######
-In comparison to python list numpy arrays have fixed size and type (called ``dtype``).
+In comparison with python lists, numpy arrays have a fixed size and type (called ``dtype``).
 
 .. code-block::
 
@@ -41,12 +40,12 @@ In comparison to python list numpy arrays have fixed size and type (called ``dty
 
 Types
 ~~~~~
-Numpy in basic uses primitive types.
+basic ``numpy`` uses primitive types.
 
 =============================== ================================================
 Type                            Description
 =============================== ================================================
-``bool``                        ``True`` or ``False`` stored as single bit
+``bool``                        ``True`` or ``False`` stored as a single bit
 ``int``                         signed 32 or 64 bits int
 ``int8/16/32/64``               respectively 8/16/32/64 signed integer
 ``uint8/16/32/64``              respectively 8/16/32/64 unsigned integer
@@ -55,23 +54,23 @@ Type                            Description
 ``float64`` or ``float``        double precision float
 ``complex64``                   complex number represented as two ``float32``
 ``complex128`` or ``complex``   complex number represented as two ``float64``
-``object``                      arbitrary python object, possible but rare used
+``object``                      arbitrary python object, rarely used
 =============================== ================================================
 
-Please remember about bit overflow.
+Please be wary of bit overflow.
 
 Creating arrays
 ###############
 
-* ``array(object,dtype=None, *, copy=True, order='K', subok=False, ndmin=0)`` - create numpy array from object
-* ``empty(shape, dtype=float, order='C')`` – array of given shape without data initialization
+* ``array(object,dtype=None, *, copy=True, order='K', subok=False, ndmin=0)`` - create a numpy array from an object
+* ``empty(shape, dtype=float, order='C')`` – empty array of given shape
 * ``zeros(shape, dtype=float, order='C')`` – array of given shape filled with zeros
 * ``ones(shape, dtype=float, order='C')`` – array of given shape filled with ones
 * ``np.full(shape, fill_value, dtype=None, order='C')`` – array of given shape filled with ``fill_value``
-* ``arange([start, ]stop, [step, ]dtype=None)`` - similar to ``range`` but returns ``ndarray`` instance
+* ``arange([start, ]stop, [step, ]dtype=None)`` - similar to ``range`` but returns an ``ndarray`` instance
 * ``linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)`` – evenly spaced numbers over a specified interval
 
-Like list Numpy array support slicing.
+Similar to lists, numpy arrays support slicing.
 
 .. code-block:: python
 
@@ -81,7 +80,7 @@ Like list Numpy array support slicing.
     array[4:7] = [3, 4, 5]
     print(array)
 
-Its also support assigment single value to multiple positions
+Its also supports multiple position assignment.
 
 .. code-block:: python
 
@@ -92,16 +91,16 @@ Its also support assigment single value to multiple positions
 Mathematical operations
 #######################
 
-By default mathematical operation (like ``+``, ``-``, ``*`` and ``**``) are done positional.
-Full list could be found here: https://numpy.org/doc/stable/reference/routines.math.html
+By default, mathematical operations (``+``, ``-``, ``*``, ``**`` etc.) are done positionally.
+A full list can be found here: https://numpy.org/doc/stable/reference/routines.math.html
 
-Operation like matrix multiplication are implemented in ``numpy.linalg`` module
+Matrix operations (e.g. matrix multiplication) are implemented in the ``numpy.linalg`` module
 https://numpy.org/doc/stable/reference/routines.linalg.html
 
 Exercise 1
 ~~~~~~~~~~
 
-Fix array creation in bellow code to satisfy all ``assert``.
+Fix the code, so that all ``assert``s pass.
 
 .. code-block:: python
 
@@ -116,28 +115,28 @@ Fix array creation in bellow code to satisfy all ``assert``.
 Array properties
 ################
 
-* ``shape`` – tuple with shape of array
-* ``size`` – size of arrays, equal to multiplication ``shape`` elements
+* ``shape`` – a tuple with info on the shape of array
+* ``size`` – the size of an array, equal to the product of ``shape`` elements
 * ``dtype`` – data type used for storage
 * ``T`` – transpose of array
 
 Array manipulation
 ##################
-Numpy has multiple functions for manipulate shape of array:
+Numpy has many functions for shape manipulation:
 
-* ``reshape`` – new shape have to had same number of elements.
-* ``squeeze`` – remove single dimensions axes
-* ``flatten`` - single dimension copy of array
+* ``reshape`` – change the shape. New array shape has to have same ``size``
+* ``squeeze`` – remove one dimension from the shape
+* ``flatten`` - a flat, 1-d copy of the array
 * ``ravel`` – contiguous flattened array
 
-* ``astype`` – allow to change array dtpe
+* ``astype`` – allows to change array dtype
 
-For more read https://numpy.org/doc/stable/reference/routines.array-manipulation.html
+For more, read https://numpy.org/doc/stable/reference/routines.array-manipulation.html
 
 Slicing
 #######
 
-Numpy arrays allow for slicing in multiple dimension. For example:
+Numpy arrays allow for slicing along multiple dimension. For example:
 
 .. code-block:: python
 
@@ -158,16 +157,16 @@ Numpy arrays allow for slicing in multiple dimension. For example:
     array([[0, 0],
            [0, 1]], dtype=uint16)
 
-Remember that ``arr[:2, :2]`` is faster than ``arr[:2][:2]``
+Remember that ``arr[:2, :2]`` is faster than ``arr[:2][:2]``!
 
 IO operations
 #############
 
-* ``loadtxt`` – load array from text file
-* ``savetxt`` – save array to text file
-* ``load`` – load data from binary file (``.npy`` or ``.npz``)
-* ``save`` – save array to ``.npy`` binary file
-* ``savez`` and ``savez_compressed`` – save multiple arrays in uncompressed or compressed binary file.
+* ``loadtxt`` – load array from a text file
+* ``savetxt`` – save array to a text file
+* ``load`` – load data from a binary file (``.npy`` or ``.npz``)
+* ``save`` – save array to an ``.npy`` binary file
+* ``savez`` and ``savez_compressed`` – save multiple arrays to an uncompressed or compressed binary file.
 
 More: https://numpy.org/doc/stable/reference/routines.io.html
 
@@ -182,7 +181,7 @@ Statistics
 
 More: https://numpy.org/doc/stable/reference/routines.statistics.html
 
-Many of numpy functions have ``axis`` argument which allows to perform such operation along given axis.
+Many numpy functions have an ``axis`` argument which allows specification of the axis along which the operation is to be applied
 
 .. code-block:: python
 
@@ -197,22 +196,23 @@ Many of numpy functions have ``axis`` argument which allows to perform such oper
 Exercise 2
 ~~~~~~~~~~
 
-Load data from ``data/sample.csv`` calculate mean, median and std for each column separately.
-Write it using numpy and without it (also without pandas etc).
+Load data from ``data/sample.csv``; calculate mean, median and std for each column separately.
+Solve this using numpy and without numpy (or pandas etc.)
 
-For each method measure time of it execution (using ``%time`` magic or ``time()`` function from ``time`` module)
+Measure the time of it execution (using ``%time`` magic or ``time()`` function from ``time`` module) for each case.
 
 Masking
 #######
 
-Comparison of two proper sized numpy array or comparison numpy array to number produces array of ``bool``.
+Comparing two congruent numpy arrays or a numpy array with a number yields an array of ``bool``.
 
 .. code-block:: python
 
     >>> np.arange(9) > 4
     array([False, False, False, False, False,  True,  True,  True,  True])
 
-So it cannot be used in ``if`` without conversion too bool using ``np.all`` or ``np.any``. So instead
+To use array comparisons in an ``if`` statement, convert it to ``bool`` using ``np.all`` or ``np.any``.
+Instead of doing the following:
 
 .. code-block:: python
 
@@ -226,15 +226,15 @@ do:
     if np.all(arr1 == arr2):
         do_something()
 
-or best:
+or, even better:
 
 .. code-block:: python
 
     if np.array_equal(arr1, arr2):
         do_something()
 
-Boolean masks could be used for indexing existing array.
-Lest randomize 1000 variables from ``N(2, 1)`` then change all values bellow 0 to 0.
+Boolean masks could be used for indexing an existing array.
+Lets randomize 1000 variables from ``N(2, 1)`` and then change all values bellow 0 to 0.
 
 .. code-block:: python
 
@@ -248,15 +248,16 @@ Lest randomize 1000 variables from ``N(2, 1)`` then change all values bellow 0 t
 Exercise 3
 ~~~~~~~~~~
 Load data from ``data/ex3_data.npy`` and filter out rows with ``nan`` values.
-Report how many rows are dropped during filtering. Globally or per column.
+Report how many rows are dropped during filtration, globally and per column.
 
 Exercise 3
 ~~~~~~~~~~
-Using ``loadtxt`` form ``numpy`` load data from ``data/iris.csv``. Skip header and name column.
-For each column calculate `mean`, `median` and `std`
+Load data from ``data/iris.csv`` using ``loadtxt`` from ``numpy``. 
+Skip header and name columns.
+For each column calculate: `mean`, `median` and `std`
 
 Exercise 4
 ~~~~~~~~~~
-Load data from ``data/sample_treated.npz``. Assume that each row of ``outputs`` array contains information
-about size of some structure traced in time. We would like to know which object grows at least two times during
-observation.
+Load data from ``data/sample_treated.npz``. 
+Assume that each row of the ``outputs`` array contains information about the size of some structure traced in time.
+We would like to know which object grows doubles its size during observation.
