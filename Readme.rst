@@ -66,7 +66,7 @@ Creating arrays
 * ``empty(shape, dtype=float, order='C')`` – empty array of given shape
 * ``zeros(shape, dtype=float, order='C')`` – array of given shape filled with zeros
 * ``ones(shape, dtype=float, order='C')`` – array of given shape filled with ones
-* ``np.full(shape, fill_value, dtype=None, order='C')`` – array of given shape filled with ``fill_value``
+* ``full(shape, fill_value, dtype=None, order='C')`` – array of given shape filled with ``fill_value``
 * ``arange([start, ]stop, [step, ]dtype=None)`` - similar to ``range`` but returns an ``ndarray`` instance
 * ``linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)`` – evenly spaced numbers over a specified interval
 
@@ -100,7 +100,7 @@ https://numpy.org/doc/stable/reference/routines.linalg.html
 Exercise 1
 ~~~~~~~~~~
 
-Fix the code, so that all ``assert``s pass.
+Fix the code, so that all ``assert`` pass.
 
 .. code-block:: python
 
@@ -109,7 +109,7 @@ Fix the code, so that all ``assert``s pass.
     assert len(arr1) == 10
     assert len(arr2) == 10
     assert np.all(arr1 == 100)
-    assert np.all(arr1 == 156)
+    assert np.all(arr2 == 156)
     assert np.all(arr1 + arr2 == 0)
 
 Array properties
@@ -250,13 +250,13 @@ Exercise 3
 Load data from ``data/ex3_data.npy`` and filter out rows with ``nan`` values.
 Report how many rows are dropped during filtration, globally and per column.
 
-Exercise 3
+Exercise 4
 ~~~~~~~~~~
 Load data from ``data/iris.csv`` using ``loadtxt`` from ``numpy``. 
 Skip header and name columns.
 For each column calculate: `mean`, `median` and `std`
 
-Exercise 4
+Exercise 5
 ~~~~~~~~~~
 Load data from ``data/sample_treated.npz``. 
 Assume that each row of the ``outputs`` array contains information about the size of some structure traced in time.
