@@ -254,7 +254,7 @@ Exercise 4
 ~~~~~~~~~~
 Load data from ``data/iris.csv`` using ``loadtxt`` from ``numpy``. 
 Skip header and name columns.
-For each column calculate: `mean`, `median` and `std` and `std` and `axis` parameter.
+For each column calculate: `mean`, `median` and `std` using `axis` parameter.
 
 Exercise 5
 ~~~~~~~~~~
