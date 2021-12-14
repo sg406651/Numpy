@@ -248,7 +248,7 @@ Lets randomize 1000 variables from ``N(2, 1)`` and then change all values bellow
 Exercise 3
 ~~~~~~~~~~
 Load data from ``data/ex3_data.npy`` and filter out rows with ``nan`` values.
-Report how many rows are dropped during filtration, globally and per column.
+Report how many rows are dropped during filtration, globally and how many ``nan`` are in each column.
 
 Exercise 4
 ~~~~~~~~~~
